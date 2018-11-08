@@ -1,0 +1,7 @@
+# simplemooc git ignore
+
+.idea/workspace.xml
+*/__pycache__/
+*/migrations/__pycache__/
+
+
