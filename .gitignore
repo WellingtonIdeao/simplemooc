@@ -3,5 +3,6 @@
 .idea/workspace.xml
 */__pycache__/
 */migrations/__pycache__/
+simplemooc/media/courses/images
 
 

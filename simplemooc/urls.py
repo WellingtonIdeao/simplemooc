@@ -20,6 +20,9 @@ from django.urls.conf import include
 urlpatterns = [
 # Inclui as URLs do app ‘website'
     path('', include('website.urls', namespace='website')),
+# Inclui as URLs do app ‘courses'
+    path('cursos/', include('courses.urls', namespace='courses')),
 # Interface administrativa
     path('admin/', admin.site.urls),
+
 ]
