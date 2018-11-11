@@ -12,7 +12,8 @@ class CourseManager(models.Manager):
 class Course (models.Model):
     name = models.CharField('Nome', max_length=100)
     slug = models.SlugField('Atalho')
-    description = models.TextField('Descrição')
+    description = models.TextField('Descrição Simples', blank=True)
+    about = models.TextField('Sobre o Curso', blank=True)
     start_date = models.DateField(
         'Data de Início', null=True, blank=True
     )
