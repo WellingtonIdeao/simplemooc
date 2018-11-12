@@ -3,7 +3,6 @@ from simplemooc.models import Course
 from .forms import ContactCourse
 
 
-
 def index(request):
     courses = Course.objects.all()
     template_name = 'courses/index.html'
@@ -26,16 +25,11 @@ def details(request, slug):
         form = ContactCourse(request.POST)
         if form.is_valid():
             context_name['is_valid'] = True
-            print(form.cleaned_data['name'])
-            print(form.cleaned_data['message'])
+            form.send_mail(course)
             form = ContactCourse()
-
-
     else:
         form = ContactCourse()
 
     context_name['course'] = course
     context_name['form'] = form
-
-
     return render(request, template_name, context_name)
