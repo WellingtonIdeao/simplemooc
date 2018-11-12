@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from simplemooc.models import Course
+from .forms import ContactCourse
+
 
 
 def index(request):
@@ -19,5 +21,21 @@ def index(request):
 def details(request, slug):
     course = get_object_or_404(Course, slug=slug)
     template_name = 'courses/details.html'
-    context_name = {'course': course}
+    context_name = {}
+    if request.method == 'POST':
+        form = ContactCourse(request.POST)
+        if form.is_valid():
+            context_name['is_valid'] = True
+            print(form.cleaned_data['name'])
+            print(form.cleaned_data['message'])
+            form = ContactCourse()
+
+
+    else:
+        form = ContactCourse()
+
+    context_name['course'] = course
+    context_name['form'] = form
+
+
     return render(request, template_name, context_name)
