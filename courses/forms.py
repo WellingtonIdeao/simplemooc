@@ -24,12 +24,12 @@ class ContactCourse(forms.Form):
             subject, template_name, context, [settings.CONTACT_EMAIL]
         )
 
-#   def send_mail(self, course):
- #       subject = '{} Contato '.format(course)
- #       context = {
- #               'name': self.cleaned_data['name'],
- #               'email': self.cleaned_data['email'],
- #               'message': self.cleaned_data['message']
- #       }
- #       message = 'Nome: {name}; E-mail: {email}; Mensagem: {message}'.format(**context)
- #       send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.CONTACT_EMAIL])
+#  def send_mail(self, course):
+#       subject = '{} Contato '.format(course)
+#       context = {
+#               'name': self.cleaned_data['name'],
+#               'email': self.cleaned_data['email'],
+#               'message': self.cleaned_data['message']
+#       }
+#       message = 'Nome: {name}; E-mail: {email}; Mensagem: {message}'.format(**context)
+#       send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [settings.CONTACT_EMAIL])

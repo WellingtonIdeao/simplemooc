@@ -1,4 +1,4 @@
-"""simplemooc URL Configuration
+"""courses URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -13,24 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path
-from django.urls.conf import include
-from django.conf import settings
-from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
+app_name = 'accounts'
 
-
+# urlpatterns contém a lista de roteamentos de URLs
 urlpatterns = [
-# Inclui as URLs do app ‘website'
-    path('', include('website.urls', namespace='website')),
-# Inclui as URLs do app ‘courses'
-    path('cursos/', include('courses.urls', namespace='courses')),
-# Inclui as URLs do app ‘accounts'
-    path('conta/', include('accounts.urls', namespace='accounts')),
-# Interface administrativa
-    path('admin/', admin.site.urls),
+    #GET /
+    path('entrar', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
 
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
