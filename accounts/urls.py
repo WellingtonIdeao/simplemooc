@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.urls import path
 from django.contrib.auth import views as auth_views
+from . import views as accounts_views
 app_name = 'accounts'
-
 # urlpatterns contém a lista de roteamentos de URLs
 urlpatterns = [
     #GET /
     path('entrar', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
+    path('cadastra-se', accounts_views.register, name='register'),
 
 ]
