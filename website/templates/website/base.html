@@ -16,13 +16,13 @@
         <ul>
              <li class="pure-menu-selected"><a href="{%url 'website:home' %}">Início</a></li>
                 <li><a href="{% url 'courses:index' %}">Cursos</a></li>
+                <li><a href="{% url 'website:contact' %}">Contato</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'accounts:dashboard' %}">Painel</a></li>
                 <li><a href="{% url 'accounts:logout' %}">Sair</a></li>
                 {% else %}
                 <li><a href="{% url 'accounts:login' %}">Entrar</a></li>
                 {% endif %}
-                <li><a href="{% url 'website:contact' %}">Contato</a></li>
         </ul>
     </div>
 </div>
