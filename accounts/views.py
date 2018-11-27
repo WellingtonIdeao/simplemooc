@@ -19,7 +19,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             user = authenticate(
-                username=user.name, password=form.cleaned_data['password1']
+                username=user.username, password=form.cleaned_data['password1']
             )
             login(request, user)
             return redirect(settings.LOGIN_REDIRECT_URL)
