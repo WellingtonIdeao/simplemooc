@@ -24,6 +24,7 @@ urlpatterns = [
     path('entrar', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
     path('sair', auth_views.LogoutView.as_view(next_page='website:home'), name='logout'),
     path('cadastra-se', accounts_views.register, name='register'),
+    path('nova-senha', accounts_views.password_reset, name='password_reset'),
     path('editar', accounts_views.edit, name='edit'),
     path('editar-senha', accounts_views.edit_password, name='edit_password')
 
