@@ -40,7 +40,7 @@ class Course (models.Model):
         ordering = ['name']
 
 
-class Enrollment(models.Model):
+class EnrollmentModel(models.Model):
     STATUS_CHOICES = ((0, 'Pendente'),
                       (1, 'Aprovado'),
                       (2, 'Cancelado')
@@ -54,18 +54,20 @@ class Enrollment(models.Model):
         Course, verbose_name='Curso', on_delete=models.CASCADE,
         related_name='enrollments'
     )
-
+    status = models.IntegerField(
+        'Situação', choices=STATUS_CHOICES, default=1, blank=True
+    )
     created_at = models.DateTimeField('Criado em', auto_now_add=True)
     updated_at = models.DateTimeField('Atualizado em', auto_now=True)
+
+    def active(self):
+        self.status = 1
+        self.save()
 
     class Meta:
         verbose_name = 'Inscrição'
         verbose_name_plural = 'Inscrições'
         unique_together = (('user', 'course'),)
-
-
-
-
 
 
 
