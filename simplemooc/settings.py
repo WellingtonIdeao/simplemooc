@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'website',
     'courses',
     'accounts'
+
 )
 
 MIDDLEWARE = [
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'simplemooc.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['website/templates/website'],
+        'DIRS': ['website/templates/website', 'courses/templatetags/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
