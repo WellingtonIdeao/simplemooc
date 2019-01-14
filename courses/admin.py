@@ -1,5 +1,5 @@
 from django.contrib import admin
-from simplemooc.models import Course
+from simplemooc.models import Course, EnrollmentModel, Announcement, Comment
 
 
 class CourseAdmin(admin.ModelAdmin):
@@ -10,3 +10,4 @@ class CourseAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Course, CourseAdmin)
+admin.site.register([EnrollmentModel, Announcement, Comment])
